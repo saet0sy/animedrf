@@ -1,6 +1,6 @@
 # Anime Web Catalog
 
-![Project Logo](https://github.com/saet0sy/animedrf/tree/main/animesite/images)
+![Project Logo](https://github.com/saet0sy/animedrf/tree/main/animesite/images/logo.jpg)
 
 Anime Web Catalog is a web application designed for cataloging anime. The project is built using Django Rest Framework to create the API and React Vite for the frontend.
 
