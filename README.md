@@ -42,7 +42,7 @@ yarn dev
 ```
 
 Usage
-After installing and running the backend and frontend, you can open your application in the browser and start using it. By default, the backend will be available at http://localhost:8000/, and the frontend at http://localhost:3000/.
+After installing and running the backend and frontend, you can open your application in the browser and start using it. By default, the backend will be available at http://localhost:8000/, and the frontend at http://localhost:5173/
 
 API Documentation
 You can find detailed API documentation in API Documentation.
