@@ -1,1 +1,217 @@
 @import "bootstrap/scss/bootstrap";
+
+$backgroundImage: url('@/images/backgroundImage.png'); // Путь к фоновому изображению
+$arrowImage: url('@/images/arrow.png'); // Путь к изображению стрелки
+$lineImage: url('@/images/line.png'); // Путь к изображению линии
+
+a {
+    text-decoration: none;
+}
+
+.arrowStyle {
+    width: 2%;
+    /* Используем проценты вместо px */
+    height: 1%;
+    /* Используем проценты вместо px */
+    margin-left: 1%;
+    /* Используем проценты вместо px */
+    margin-bottom: 0.5%;
+    /* Используем проценты вместо px */
+}
+
+.lineStyle {
+    width: 85%;
+    /* Используем проценты вместо px */
+    margin-left: 1%;
+    /* Используем проценты вместо px */
+    margin-bottom: 0.5%;
+    /* Используем проценты вместо px */
+}
+
+.containerStyle {
+    background-color: #262626;
+    color: white;
+    padding: 5%;
+    /* Используем проценты вместо px */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.randomAnimeContent img {
+    height: 100%;
+    width: auto;
+}
+
+.randomAnimeContent {
+    height: 30%;
+    position: absolute;
+    justify-content: center;
+}
+
+
+
+.randomAnimeStyle {
+    width: 60%;
+    /* Используем проценты вместо px */
+    height: 80vh;
+    /* Используем автоматическую высоту */
+    flex-shrink: 0;
+    border-radius: 1rem;
+    /* Используем rem */
+    background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.13) 47.07%), $backgroundImage center/cover no-repeat, lightgray;
+    padding: 2%;
+    /* Используем проценты вместо px */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    color: white;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 0.2rem solid white;
+    /* Используем rem */
+}
+
+.titleStyle {
+    font-size: 2rem;
+    /* Используем rem */
+    top: 0.5rem;
+    /* Используем rem */
+    margin-left: 4%;
+    /* Используем проценты вместо px */
+    color: white;
+    margin-top: 2%;
+    /* Используем проценты вместо px */
+    margin-bottom: 2%;
+    /* Используем проценты вместо px */
+    width: 100%;
+}
+
+.animeTitleStyle {
+    background-color: white;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 17px;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: absolute;
+    top: 70%;
+    left: 60%;
+}
+
+
+.searchContainerStyle {
+    width: 80%;
+    /* Используем проценты вместо px */
+    height: 5%;
+    /* Используем проценты вместо px */
+    flex-shrink: 0;
+    border-radius: 1rem;
+    /* Используем rem */
+    background: #FFF;
+    margin: 2% auto;
+    /* Используем проценты вместо px */
+    display: flex;
+    align-items: center;
+    /* Используем проценты вместо px */
+    justify-content: center;
+    /* Используем проценты вместо px */
+    margin-left: 4%;
+    /* Используем проценты вместо px */
+    padding: 0.5%;
+    /* Используем проценты вместо px */
+}
+
+.inputStyle {
+    flex: 1;
+    padding: 1rem;
+    /* Используем rem */
+    border: none;
+    border-radius: 1rem;
+    /* Используем rem */
+}
+
+.buttonStyle {
+    background-color: #262626;
+    color: white;
+    border: 0.2rem solid;
+    border-radius: 1rem;
+    /* Используем rem */
+    padding: 1rem 2rem;
+    /* Используем rem и проценты вместо px */
+    width: 18%;
+    /* Используем проценты вместо px */
+    height: 5%;
+    /* Используем проценты вместо px */
+    margin-right: 10%;
+    /* Используем проценты вместо px */
+}
+
+.alsoToWatchContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 2% 0;
+    /* Используем проценты вместо px */
+}
+
+.animeCardStyle {
+    width: 20%;
+    /* Используем проценты вместо px */
+    height: auto;
+    /* Используем автоматическую высоту */
+    flex-shrink: 0;
+    border-radius: 1rem;
+    /* Используем rem */
+
+}
+
+.animeCardImageStyle {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    /* Используем rem */
+}
+
+.animeCardTitleStyle {
+    background-color: white;
+    color: black;
+    padding: 0.5rem 1rem;
+    /* Используем rem и проценты вместо px */
+    border-radius: 0 0 1rem 1rem;
+    /* Используем rem */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    position: relative;
+}
+
+// Медиа-запросы для адаптивности
+@media (max-width: 768px) {
+    .titleStyle {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+
+    .buttonStyle {
+        margin-right: 1rem;
+    }
+
+    .searchContainer {
+        width: 100%;
+        height: auto;
+        margin: 1rem auto;
+    }
+
+    .animeCardStyle {
+        width: 30%;
+    }
+
+
+    // Другие стили для меньших экранов
+}

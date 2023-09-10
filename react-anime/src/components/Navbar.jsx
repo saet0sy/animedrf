@@ -4,32 +4,55 @@ const Navbar = () => {
   const routes = [
     {
       path: "/",
-      title: "Home",
+      title: "Serials", // Замените "Home" на "Serials"
     },
     {
       path: "/about",
-      title: "About",
+      title: "Blogs", // Замените "About" на "Blogs"
     },
     {
       path: "/anime",
-      title: "Anime List",
+      title: "Top 100", // Замените "Anime List" на "Top 100"
     },
   ];
 
+  const navStyle = {
+    display: "flex",
+    marginTop: '-70px',
+    justifyContent: "center", // Центрирование элементов по горизонтали
+    alignItems: "center", // Выравнивание элементов по вертикали
+    backgroundColor: "#262626",
+  };
+  
+
+  const ulStyle = {
+    listStyle: "none",
+    display: "flex",
+  };
+
+  const liStyle = {
+    margin: "0 100px 0 0",
+  };
+
+  const linkStyle = {
+    textDecoration: "none",
+    color: "white", // Сделайте цвет текста белым
+    borderBottom: "none", // Уберите подводку
+    fontSize: "18px",
+  };
+
   return (
-    <>
-      <nav>
-        <ul>
-          {routes.map((route, idx) => {
-            return (
-              <li key={idx}>
-                <Link to={route.path}>{route.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </>
+    <nav style={navStyle}>
+      <ul style={ulStyle}>
+        {routes.map((route, idx) => {
+          return (
+            <li key={idx} style={liStyle}>
+              <Link to={route.path} style={linkStyle}>{route.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 };
 
