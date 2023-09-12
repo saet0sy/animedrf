@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   const liStyle = {
-    margin: "0 100px 0 0",
+    margin: "0 300px 0 0",
   };
 
   const linkStyle = {

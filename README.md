@@ -55,4 +55,4 @@ This project is licensed under the MIT License.
 
 Created with ❤️ and a passion for anime.
 
-Author: Your Name
+Author: saet0sy
