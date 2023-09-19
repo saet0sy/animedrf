@@ -1,59 +1,41 @@
 import { Link } from "react-router-dom";
+import "../scss/styles.scss";
 
 const Navbar = () => {
   const routes = [
     {
       path: "/",
-      title: "Serials", // Замените "Home" на "Serials"
+      title: "Comments", 
     },
     {
       path: "/about",
-      title: "Blogs", // Замените "About" на "Blogs"
+      title: "About", 
     },
     {
       path: "/anime",
-      title: "Top 100", // Замените "Anime List" на "Top 100"
+      title: "Anime", 
     },
   ];
 
-  const navStyle = {
-    display: "flex",
-    marginTop: '-70px',
-    justifyContent: "center", // Центрирование элементов по горизонтали
-    alignItems: "center", // Выравнивание элементов по вертикали
-    backgroundColor: "#262626",
+
+    return (
+      <nav className="navbar">
+        <ul className="nav-ul">
+          {routes.map((route, idx) => (
+            <li key={idx} className="nav-li">
+              <Link to={route.path} className="nav-link">
+                {route.title}
+              </Link>
+            </li>
+          ))}
+          <li className="nav-li">
+          <Link to="/login" className="nav-link">
+            Login
+          </Link>
+        </li>
+        </ul>
+      </nav>
+    );
   };
   
-
-  const ulStyle = {
-    listStyle: "none",
-    display: "flex",
-  };
-
-  const liStyle = {
-    margin: "0 300px 0 0",
-  };
-
-  const linkStyle = {
-    textDecoration: "none",
-    color: "white", // Сделайте цвет текста белым
-    borderBottom: "none", // Уберите подводку
-    fontSize: "18px",
-  };
-
-  return (
-    <nav style={navStyle}>
-      <ul style={ulStyle}>
-        {routes.map((route, idx) => {
-          return (
-            <li key={idx} style={liStyle}>
-              <Link to={route.path} style={linkStyle}>{route.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
-};
-
-export default Navbar;
+  export default Navbar;

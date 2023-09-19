@@ -13,59 +13,58 @@ const AnimeList = () => {
   const [randomAnime, setRandomAnime] = useState(null);
 
   useEffect(() => {
-    // Генерация случайного числа для выбора случайного аниме
     axios.get('http://localhost:8000/api/anime/')
       .then((res) => {
         const animeList = res.data.results;
         const randomIndex = Math.floor(Math.random() * animeList.length);
         setRandomAnime(animeList[randomIndex]);
       });
-
-    // Загрузка списка аниме
     axios.get('http://localhost:8000/api/anime/')
       .then((res) => setAnimeList(res.data.results));
   }, []);
 
   return (
-    <div className="containerStyle">
+    <div>
       <Navbar />
-      <div className="searchContainerStyle">
-        <img src = {searchImage} alt="Search" className="searchImageStyle" />"
-        <input type="text" placeholder="something in my..." className="inputStyle" />
-        <button className="buttonStyle">Search</button>
-      </div>
-      <h1 className="titleStyle">
-        Random Anime
-        <img src={arrowImage} alt="Arrow" className="arrowStyle" />
-        <img src={lineImage} alt="Line" className="lineStyle" />
-      </h1>
-      {randomAnime ? (
-        <div className="randomAnimeStyle">
-          <div className="randomAnimeContent">
-            <Link to={`/anime/${randomAnime.id}`} className="animeLink"> <img src={randomAnime.image} alt={randomAnime.title} /></Link>
-            <Link to={`/anime/${randomAnime.id}`} className="animeLink2"> <h2 className="animeTitleStyle">{randomAnime.title}</h2></Link>
-          </div>
+      <div className="containerStyle">
+        <div className="searchContainerStyle">
+          <img src={searchImage} alt="Search" className="searchImageStyle" />"
+          <input type="text" placeholder="something in my..." className="inputStyle" />
+          <button className="buttonStyle">Search</button>
         </div>
-      ) : (
-        <Loading />
-      )}
-      <h2 className="alsoToWatchTitle">Also to watch...
-        <img src={arrowImage} alt="Arrow" className="arrowStyle" />
-        <img src={lineImage} alt="Line" className="lineStyle" />
-      </h2>
-      <div className="alsoToWatchContainer">
-        {animeList && animeList.slice(0, 4).map((anime) => (
-          <div key={anime.id} className="animeCardStyle">
-            <Link to={`/anime/${anime.id}`} className="animeLink">
-              <img
-                src={anime.image}
-                alt={anime.title}
-                className="animeCardImageStyle"
-              />
-              <div className="animeCardTitleStyle">{anime.title}</div>
-            </Link>
+        <h1 className="titleStyle">
+          Random Anime
+          <img src={arrowImage} alt="Arrow" className="arrowStyle" />
+          <img src={lineImage} alt="Line" className="lineStyle" />
+        </h1>
+        {randomAnime ? (
+          <div className="randomAnimeStyle">
+            <div className="randomAnimeContent">
+              <Link to={`/anime/${randomAnime.id}`} className="animeLink"> <img src={randomAnime.image} alt={randomAnime.title} /></Link>
+              <Link to={`/anime/${randomAnime.id}`} className="animeLink2"> <h2 className="animeTitleStyle">{randomAnime.title}</h2></Link>
+            </div>
           </div>
-        ))}
+        ) : (
+          <Loading />
+        )}
+        <h2 className="alsoToWatchTitle">Also to watch...
+          <img src={arrowImage} alt="Arrow" className="arrowStyle" />
+          <img src={lineImage} alt="Line" className="lineStyle" />
+        </h2>
+        <div className="alsoToWatchContainer">
+          {animeList && animeList.slice(0, 4).map((anime) => (
+            <div key={anime.id} className="animeCardStyle">
+              <Link to={`/anime/${anime.id}`} className="animeLink">
+                <img
+                  src={anime.image}
+                  alt={anime.title}
+                  className="animeCardImageStyle"
+                />
+                <div className="animeCardTitleStyle">{anime.title}</div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

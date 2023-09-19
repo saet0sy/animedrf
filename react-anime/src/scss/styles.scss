@@ -1,12 +1,243 @@
 @import "bootstrap/scss/bootstrap";
 
-$backgroundImage: url('@/images/backgroundImage.png'); // Путь к фоновому изображению
-$arrowImage: url('@/images/arrow.png'); // Путь к изображению стрелки
-$lineImage: url('@/images/line.png'); // Путь к изображению линии
+
+
+$backgroundImage: url('@/images/backgroundImage.png');
+$arrowImage: url('@/images/arrow.png');
+$lineImage: url('@/images/line.png');
+
 
 a {
     text-decoration: none;
 }
+
+.login-container {
+    background-color: #262626;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  .login-form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .login-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #262626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .login-button:hover {
+    background-color: #4e4c4c;
+  }
+
+.comment-submitted {
+    color: green;
+    font-weight: bold;
+    margin-top: 1rem; 
+  }
+
+.form-container {
+    background-color: #262626;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 6px;
+    max-width: 400px; 
+    margin: 0 auto; 
+  }
+  
+
+  .form-container input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .form-container button[type="submit"] {
+    background-color: #262626;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-container button[type="submit"]:hover {
+    background-color: #4e4c4c;
+  }
+  
+  .error-message {
+    color: #ff0000; 
+    margin-top: 0.5rem;
+    font-size: 0.875rem; 
+  }
+
+.link-style {
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.home-container {
+    background-color: #262626;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.comments-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Разрешает перенос комментариев на новую строку при нехватке места */
+    justify-content: center; /* Центрирует комментарии по горизонтали */
+}
+
+.comment-item {
+    width: 300px; /* Ширина карточки комментария, можно настроить по желанию */
+    margin: 1rem; /* Расстояние между карточками */
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.comment-item strong {
+    font-weight: bold;
+}
+
+
+.anime-detail-container {
+    background-color: #262626;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.anime-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.anime-image {
+    max-width: 40%;
+    height: auto;
+    margin-right: 2rem;
+}
+
+.anime-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.anime-genres {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    text-align: start;
+}
+
+.anime-genre {
+    margin-right: 1rem;
+}
+
+.anime-trailer {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.about-container {
+    background-color: #262626;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 2rem;
+}
+
+.about-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navbar {
+    background-color: #262626;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-ul {
+    list-style: none;
+    display: flex;
+    padding-left: 20%;
+}
+
+.nav-li {
+    margin: 0 300px 0 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    border-bottom: none;
+    font-size: 18px;
+}
+
 
 .searchImageStyle {
     width: 3.5%;
@@ -20,20 +251,9 @@ a {
     top: 0.5rem;
     margin-left: 20%;
     color: white;
-    margin-top: 2%;
-    margin-bottom: 10%;
-
+    margin-top: 5%;
 }
 
-.alsoToWatchContainer h2 {
-    font-size: 2rem;
-    top: 0.5rem;
-    margin-left: 1%;
-    color: white;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    max-width: 1280;
-}
 
 .arrowStyle {
     width: 2%;
@@ -61,6 +281,7 @@ a {
 .randomAnimeContent img {
     height: 100%;
     width: auto;
+    max-width: 100%;
 }
 
 .randomAnimeContent {
@@ -146,29 +367,29 @@ a {
 
 .alsoToWatchContainer {
     display: flex;
-    width: 1000px;
-    height: 450px;
-    margin: 0 35vh 0;
+    flex-wrap: wrap;
     justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    margin-top: 3vh;
 }
+
 
 .animeCardStyle {
-    height: auto;
-    flex-shrink: 0;
+    flex: 0 0 calc(25% - 2%);
+    height: 100%;
     border-radius: 1rem;
-    padding: 1vh;
-    width: 25%;
-    margin-right: 10%;
-    margin-left: -4%;
+    padding: 2vh;
 }
-
 
 .animeCardImageStyle {
     width: 100%;
     height: 70%;
     object-fit: cover;
     border-radius: 1rem;
-
+    max-width: 100%;
 }
 
 .animeCardTitleStyle {
@@ -185,114 +406,167 @@ a {
     text-align: start;
 }
 
+
 @media (max-width: 768px) {
+    .about-title {
+        font-size: 1.5rem;
+    }
+
+    .about-text {
+        font-size: 0.875rem;
+    }
+
     .arrowStyle {
         width: 3%;
-        /* Увеличиваем ширину стрелки для лучшей видимости */
         height: 2%;
-        /* Увеличиваем высоту стрелки для лучшей видимости */
         margin-left: 1%;
-        /* Уменьшаем левый отступ */
         margin-bottom: 1%;
-        /* Увеличиваем нижний отступ */
     }
 
     .lineStyle {
         width: 80vw;
-        /* Уменьшаем ширину линии для мобильных устройств */
         margin-left: 10%;
-        /* Уменьшаем отступ слева для мобильных устройств */
         margin-bottom: 2vh;
-        /* Увеличиваем отступ снизу для мобильных устройств */
     }
 
     .containerStyle {
         padding: 2%;
-        /* Уменьшаем внутренние отступы контейнера для мобильных устройств */
     }
 
     .randomAnimeStyle {
         width: 100%;
-        /* Занимает всю ширину экрана */
         height: auto;
-        /* Высота зависит от содержимого */
         padding: 2%;
-        /* Уменьшаем внутренние отступы */
     }
 
     .titleStyle {
         font-size: 1.5rem;
-        /* Уменьшаем размер заголовка */
         margin-left: 10%;
-        /* Уменьшаем отступ слева */
         margin-top: 1rem;
-        /* Увеличиваем верхний отступ */
         margin-bottom: 1rem;
-        /* Увеличиваем нижний отступ */
     }
 
     .animeTitleStyle {
         top: 60%;
-        /* Перемещаем заголовок ближе к середине */
         left: 50%;
-        /* Выравниваем заголовок по центру */
         transform: translateX(-50%);
-        /* Корректируем позицию по горизонтали */
     }
 
     .searchContainerStyle {
         width: 100%;
-        /* Занимает всю доступную ширину экрана */
         margin-left: 0;
-        /* Убираем левый отступ */
         margin-right: 0;
-        /* Убираем правый отступ */
     }
 
     .buttonStyle {
         width: 30%;
-        /* Уменьшаем ширину кнопки для мобильных устройств */
         margin-right: 0;
-        /* Убираем правый отступ */
     }
 
     .alsoToWatchContainer {
         width: 100%;
-        /* Занимает всю доступную ширину экрана */
         margin-left: 0;
-        /* Убираем левый отступ */
         flex-direction: column;
-        /* Карты переносятся на новую строку вертикально */
         align-items: center;
-        /* Центрируем карты по горизонтали */
         height: auto;
-        /* Высота зависит от содержимого */
     }
 
     .animeCardStyle {
         width: 90%;
-        /* Уменьшаем ширину карт для мобильных устройств */
         margin: 2% 0;
-        /* Увеличиваем отступы сверху и снизу */
     }
 
     .randomAnimeContent {
         height: 20%;
-        /* Уменьшаем высоту блока с контентом */
     }
 
     .randomAnimeStyle {
         width: 90%;
-        /* Уменьшаем ширину блока */
         height: auto;
-        /* Высота зависит от содержимого */
         padding: 2%;
-        /* Уменьшаем внутренние отступы */
         align-items: center;
-        /* Центрируем контент по вертикали */
         text-align: center;
-        /* Выравниваем текст по центру */
         justify-content: center;
-        /* Центрируем текст по горизонтали */
+    }
+
+    @media (min-width: 1921px) {
+
+        .about-title {
+            font-size: 2.5rem;
+        }
+
+        .about-text {
+            font-size: 1.25rem;
+        }
+
+        .arrowStyle {
+            width: 1.5%;
+            height: 1%;
+            margin-left: 1%;
+            margin-bottom: 0.5%;
+        }
+
+        .lineStyle {
+            width: 60vw;
+            margin-left: 20%;
+            margin-bottom: 1vh;
+        }
+
+        .containerStyle {
+            padding: 3%;
+        }
+
+        .randomAnimeStyle {
+            width: 70%;
+            height: 70vh;
+            padding: 3%;
+        }
+
+        .titleStyle {
+            font-size: 2.5rem;
+            margin-left: 15%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .animeTitleStyle {
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .searchContainerStyle {
+            width: 40%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .buttonStyle {
+            width: 20%;
+            margin-right: 0;
+        }
+
+        .alsoToWatchContainer {
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .animeCardStyle {
+            width: 22%;
+            margin: 1%;
+        }
+
+        .randomAnimeContent {
+            height: 15%;
+        }
+
+        .randomAnimeStyle {
+            width: 70%;
+            height: auto;
+            padding: 3%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
     }
 }
