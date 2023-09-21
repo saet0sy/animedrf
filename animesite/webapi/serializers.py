@@ -24,14 +24,7 @@ class AnimeSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField(source='author.username')
-    anime = serializers.SerializerMethodField()
 
     class Meta:
         model = Comment
         fields = ["id", "comment", "pub_date", "anime", "author"]
-
-    def get_anime(self, obj):
-        return {
-            "id": obj.anime.id,
-            "title": obj.anime.title,
-        }

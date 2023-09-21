@@ -4,10 +4,15 @@ import axios from 'axios';
 import Loading from '@/components/Loading';
 import Navbar from "@/components/Navbar";
 import { useForm } from "react-hook-form";
-import '../scss/styles.scss'
+import '@/scss/styles.scss'
+import Comments from '@/components/Comments';
+
+
+
 
 const AnimeDetail = () => {
   const [commentSubmitted, setCommentSubmitted] = useState(false);
+  const [commentUnsubmitted, setCommentUnsubmitted] = useState(false);
   const [anime, setAnime] = useState(null);
   const [comments, setComments] = useState(null);
   const { id } = useParams();
@@ -40,6 +45,7 @@ const AnimeDetail = () => {
         setCommentSubmitted(true);
       })
       .catch((err) => {
+        setCommentUnsubmitted(true);
         if (err.response.status === 401) {
           axios
             .post(`http://localhost:8000/auth/jwt/refresh/`, {
@@ -52,6 +58,7 @@ const AnimeDetail = () => {
         }
       });
   };
+  
 
   return (
     <div>
@@ -69,6 +76,7 @@ const AnimeDetail = () => {
             </ul>
             <video src={anime.trailer} controls className="anime-trailer" />
             {commentSubmitted && <div className="comment-submitted">Comment submitted</div>}
+            {commentUnsubmitted && <div className="comment-unsubmitted">You need to login to submit a comment</div>}
             <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
               <input
                 type="text"
@@ -77,6 +85,7 @@ const AnimeDetail = () => {
               />
               <button type="submit">Submit</button>
             </form>
+            <Comments id={id} />
           </div>
           
         ) : (

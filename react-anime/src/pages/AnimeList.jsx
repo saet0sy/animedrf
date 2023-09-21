@@ -5,7 +5,6 @@ import Loading from '@/components/Loading';
 import Navbar from '@/components/Navbar';
 import arrowImage from '@/images/arrow.png';
 import lineImage from '@/images/line.png';
-import searchImage from '@/images/search.png';
 import "../scss/styles.scss"
 
 const AnimeList = () => {
@@ -27,11 +26,6 @@ const AnimeList = () => {
     <div>
       <Navbar />
       <div className="containerStyle">
-        <div className="searchContainerStyle">
-          <img src={searchImage} alt="Search" className="searchImageStyle" />"
-          <input type="text" placeholder="something in my..." className="inputStyle" />
-          <button className="buttonStyle">Search</button>
-        </div>
         <h1 className="titleStyle">
           Random Anime
           <img src={arrowImage} alt="Arrow" className="arrowStyle" />

@@ -1,62 +1,62 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Navbar from "@/components/Navbar";
-import "../scss/styles.scss";
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import "@/scss/styles.scss"
 
 
 const Home = () => {
-  const [comments, setComments] = useState([]);
-
-  function formatDate(dateString) {
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-    };
-
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-EN', options);
-  };
+  const [topAnime, setTopAnime] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/comments/")
-      .then((response) => {
-        if (Array.isArray(response.data.results)) {
-          const formattedComments = response.data.results.map((comment) => ({
-            ...comment,
-            pub_date: formatDate(comment.pub_date),
-          }));
-          setComments(formattedComments);
+    const fetchTopAnime = async () => {
+      try {
+        const response = await axios.get('https://api.jikan.moe/v4/top/anime?limit=21');
+        if (response.data && response.data.data) {
+          setTopAnime(response.data.data);
+          setIsLoading(false);
         } else {
-          console.error("Data is not an array:", response.data);
+          console.error('Ошибка при загрузке топа аниме: Ответ не содержит данных о топ-20 аниме.');
+          setIsLoading(false);
         }
-      })
-      .catch((error) => {
-        console.error("Error fetching comments:", error);
-      });
+      } catch (error) {
+        console.error('Ошибка при загрузке топа аниме:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchTopAnime();
   }, []);
 
   return (
     <div>
       <Navbar />
-      <div className="home-container">
-        <h1>Comments:</h1>
-        <ul className="comments-list">
-          {comments.map((comment) => (
-            <li key={comment.id} className="comment-item">
-              <strong>Author:</strong> {comment.author} <br />
-              <strong>Anime:</strong> <Link to={`/anime/${comment.anime.id}`} className="link-style">{comment.anime.title}</Link> <br />
-              <strong>Date:</strong> {comment.pub_date} <br />
-              <strong>Comment:</strong> {comment.comment}
-            </li>
-          ))}
-        </ul>
+        <h2>Top 20 Anime</h2>
+        <div className="top-list">
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <ul>
+              {topAnime.map((anime) => (
+                <li key={anime.mal_id} className="top-card"> 
+                  <h3>{anime.title}</h3>
+                  <img src={anime.images.jpg.large_image_url} alt={anime.title} />
+                  <p>Rating: {anime.score}</p>
+                  <p>Views: {anime.members}</p>
+
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-    </div>
   );
-}
+};
 
 export default Home;
+
+
+
+
+
+
