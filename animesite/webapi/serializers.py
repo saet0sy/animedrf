@@ -1,11 +1,11 @@
-from .models import Anime, Comment, User
+from .models import Anime, Comment, Genre
 from rest_framework import serializers
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 
-class UserSerializer(serializers.ModelSerializer):
+class GenreSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username')
+        model = Genre
+        fields = '__all__'
 
 class AnimeSerializer(serializers.ModelSerializer):
     title = serializers.CharField(

@@ -7,9 +7,6 @@ import { useForm } from "react-hook-form";
 import '@/scss/styles.scss'
 import Comments from '@/components/Comments';
 
-
-
-
 const AnimeDetail = () => {
   const [commentSubmitted, setCommentSubmitted] = useState(false);
   const [commentUnsubmitted, setCommentUnsubmitted] = useState(false);

@@ -4,8 +4,6 @@ import axios from "axios";
 import "../scss/styles.scss"
 import { Link } from "react-router-dom";
 
-
-
 const Login = () => {
   const {
     register,
@@ -33,15 +31,6 @@ const Login = () => {
       .catch((err) => console.error(err));
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-    localStorage.removeItem("user");
-
-    
-    window.location.href = "/login";
-  };
-
   return (
     <div>
       <Navbar />
@@ -59,7 +48,7 @@ const Login = () => {
             type="password"
             placeholder="Password"
             {...register("password", { required: true })}
-            value={"H77h6n{u1efN"}
+            // value={"H77h6n{u1efN"}
           />
           <button className="login-button" type="submit">
             Login

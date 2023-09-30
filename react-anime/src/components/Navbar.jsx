@@ -21,6 +21,14 @@ const Navbar = () => {
       path: "/login",
       title: "Login",
     },
+    // {
+    //   path: "/profile",
+    //   title: "Profile",
+    // },
+    {
+      path: "/all",
+      title: "Anime Database",
+    }
   ];
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,6 +59,8 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
     setIsLoggedIn(false);
   };
 

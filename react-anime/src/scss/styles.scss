@@ -12,11 +12,12 @@ a {
 }
 
 body {
-  background-color: #262626; 
-  margin: 0; 
-  padding: 0; 
-  font-family: Arial, sans-serif; 
+  background-color: #262626;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
+
 
 .top-list ul {
   list-style: none;
@@ -252,7 +253,6 @@ body {
 .navbar {
   background-color: #262626;
   color: white;
-  padding: 1rem 15rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -261,7 +261,7 @@ body {
 
 .search-input {
   padding: 5px 10px;
-  margin-left: -10vh;
+  margin-left: 5vh;
   position: absolute;
 }
 

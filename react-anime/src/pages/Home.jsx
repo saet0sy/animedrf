@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-        <h2>Top 20 Anime</h2>
+        <h2 style={{color:"white", marginLeft:"20px"}}>Top 20 Anime</h2>
         <div className="top-list">
           {isLoading ? (
             <p>Loading...</p>

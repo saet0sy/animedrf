@@ -5,6 +5,8 @@ import AnimeList from "@/pages/AnimeList";
 import AnimeDetail from "@/pages/AnimeDetail";
 import Login from "@/pages/Login";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import AllAnime from "./pages/AllAnime";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/all",
+    element: <AllAnime />,
+  }
 ]);
 
 export default router;

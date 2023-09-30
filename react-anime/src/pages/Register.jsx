@@ -1,9 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
-
-
+import "../scss/styles.scss";
 
 const Register = () => {
   const {
@@ -13,13 +11,30 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data)
-    axios.post("http://127.0.0.1:8000/auth/users/", data)
+    axios
+      .post("http://127.0.0.1:8000/auth/users/", data)
       .then((res) => {
-        window.location.href = "/";
-        console.log(res);
+        console.log("Registration successful", res);
+        axios
+          .post("http://127.0.0.1:8000/auth/jwt/create/", {
+            username: data.username,
+            password: data.password,
+          })
+          .then((tokenRes) => {
+            localStorage.setItem("access_token", tokenRes.data.access);
+            localStorage.setItem("refresh_token", tokenRes.data.refresh);
+            console.log("JWT-tokens obtained", tokenRes);
+            
+            window.location.href = "/login"; 
+          })
+          .catch((tokenError) => {
+            console.error("JWT-token obtain error:", tokenError);
+          });
       })
-  }
+      .catch((error) => {
+        console.error("Registration error", error);
+      });
+  };
 
   return (
     <div>
@@ -44,10 +59,9 @@ const Register = () => {
             type="password"
             placeholder="Password"
             {...register("password", { required: true })}
-            value={"H77h6n{u1efN"}
           />
           <button className="login-button" type="submit">
-            Submit 
+            Submit
           </button>
         </form>
       </div>
