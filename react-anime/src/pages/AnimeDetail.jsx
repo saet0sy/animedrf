@@ -55,7 +55,6 @@ const AnimeDetail = () => {
         }
       });
   };
-  
 
   return (
     <div>
@@ -84,7 +83,7 @@ const AnimeDetail = () => {
             </form>
             <Comments id={id} />
           </div>
-          
+
         ) : (
           <Loading />
         )}

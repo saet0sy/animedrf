@@ -59,21 +59,38 @@ const AllAnime = () => {
   };
 
   const applyFilters = async () => {
-    const genreQuery = selectedGenres.join("&genres=");
-    const url = `${apiUrl}?genres=${genreQuery}`;
-
-    try {
-      const response = await axios.get(url);
-      if (response.status === 200) {
-        const data = response.data;
-        setAnimeList(data.results);
-      } else {
-        console.error("Ошибка при загрузке данных");
+    if (selectedGenres.length === 0) {
+      // Если массив selectedGenres пуст, запросить все аниме
+      const url = `${apiUrl}`;
+      try {
+        const response = await axios.get(url);
+        if (response.status === 200) {
+          const data = response.data;
+          setAnimeList(data.results);
+        } else {
+          console.error("Ошибка при загрузке данных");
+        }
+      } catch (error) {
+        console.error("Произошла ошибка", error);
       }
-    } catch (error) {
-      console.error("Произошла ошибка", error);
+    } else {
+
+      const genreQuery = selectedGenres.join("&genres=");
+      const url = `${apiUrl}?genres=${genreQuery}`;
+      try {
+        const response = await axios.get(url);
+        if (response.status === 200) {
+          const data = response.data;
+          setAnimeList(data.results);
+        } else {
+          console.error("Ошибка при загрузке данных");
+        }
+      } catch (error) {
+        console.error("Произошла ошибка", error);
+      }
     }
   };
+  
 
   return (
     <div>

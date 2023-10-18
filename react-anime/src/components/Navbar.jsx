@@ -18,17 +18,17 @@ const Navbar = () => {
       title: "Anime",
     },
     {
-      path: "/login",
-      title: "Login",
-    },
-    // {
-    //   path: "/profile",
-    //   title: "Profile",
-    // },
-    {
       path: "/all",
       title: "Anime Database",
-    }
+    },
+    {
+      path: "/profile",
+      title: "Profile",
+    },
+    {
+      path: "/login",
+      title: "Login",
+    } 
   ];
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
